@@ -1,0 +1,29 @@
+services:
+  postgresql:
+    image: bitnami/postgresql:latest
+    container_name: blog_db
+    environment:
+      POSTGRES_DB: blogPosting_db
+      POSTGRES_USER: gabriel
+      POSTGRES_PASSWORD: 12345
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    networks:
+      - blog-network
+
+  valkey:
+    image: valkey/valkey:7.2
+    container_name: blogPosting_cache
+    ports:
+      - "6379:6379"
+    networks:
+      - blog-network
+
+volumes:
+  postgresql_data:
+
+networks:
+  blog-network:
+    driver: bridge
