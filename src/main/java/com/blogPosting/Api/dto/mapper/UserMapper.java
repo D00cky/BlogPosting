@@ -21,4 +21,3 @@ public class UserMapper {
 //    public UsersPostsDTO mapToPostResponse(Post post) {
 //        return new UsersPostsDTO(post.getId(), post.get)
 //    }
-}
