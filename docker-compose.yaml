@@ -14,7 +14,7 @@ services:
       - blog-network
 
   valkey:
-    image: valkey/valkey:7.2
+    image: valkey/valkey:latest
     container_name: blogPosting_cache
     ports:
       - "6379:6379"

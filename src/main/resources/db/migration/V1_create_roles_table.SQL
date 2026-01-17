@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS users
+(
+    id BIGINT NOT NULL,
+    role_name VARCHAR(255) NOT NULL,
+);

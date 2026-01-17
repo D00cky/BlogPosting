@@ -11,16 +11,10 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-public class Post {
+public class Roles {
     @Id
-    Long Id;
+    Long id;
 
-    @Column(name="title")
-    String title;
-
-    @Column(name="text")
-    String body;
-
-    @Column(name="author")
-    String nickname;
+    @Column(name = "role_name")
+    String roles;
 }

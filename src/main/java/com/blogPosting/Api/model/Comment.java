@@ -11,9 +11,9 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-public class Post {
+public class Comment {
     @Id
-    Long Id;
+    Long id;
 
     @Column(name="title")
     String title;
@@ -21,6 +21,5 @@ public class Post {
     @Column(name="text")
     String body;
 
-    @Column(name="author")
-    String nickname;
+
 }
