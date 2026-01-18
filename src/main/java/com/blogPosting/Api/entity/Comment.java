@@ -1,4 +1,4 @@
-package com.blogPosting.Api.model;
+package com.blogPosting.Api.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

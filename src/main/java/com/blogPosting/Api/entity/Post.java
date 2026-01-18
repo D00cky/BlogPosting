@@ -1,4 +1,4 @@
-package com.blogPosting.Api.model;
+package com.blogPosting.Api.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,10 +11,16 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-public class Roles {
+public class Post {
     @Id
-    Long id;
+    Long Id;
 
-    @Column(name = "role_name")
-    String roles;
+    @Column(name="title")
+    String title;
+
+    @Column(name="text")
+    String body;
+
+    @Column(name="author")
+    String nickname;
 }
