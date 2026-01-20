@@ -7,19 +7,19 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
-@Data
-@Getter
-@Setter
+//@Entity
+//@Data
+//@Getter
+//@Setter
 public class Comment {
-    @Id
-    Long id;
-
-    @Column(name="title")
-    String title;
-
-    @Column(name="text")
-    String body;
+//    @Id
+//    Long id;
+//
+//    @Column(name="title")
+//    String title;
+//
+//    @Column(name="text")
+//    String body;
 
 
 }

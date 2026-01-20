@@ -3,6 +3,7 @@ package com.blogPosting.Api.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +12,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
+@Table(name="post")
 public class Post {
     @Id
     Long Id;
@@ -24,3 +26,4 @@ public class Post {
     @Column(name="author")
     String nickname;
 }
+
