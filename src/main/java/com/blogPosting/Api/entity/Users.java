@@ -1,15 +1,12 @@
 package com.blogPosting.Api.entity;
 
-import com.blogPosting.Api.enums.Role;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
@@ -35,4 +32,7 @@ public class Users {
     @JoinColumn(name = "user_id")
     List<Post> posts = new ArrayList<>();
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "role_name")
+    List<Roles> role = new ArrayList<>();
 }

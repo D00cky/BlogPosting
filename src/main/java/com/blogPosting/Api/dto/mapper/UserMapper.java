@@ -15,6 +15,7 @@ public class UserMapper {
         return new UsersResponseDTO(
                 users.getNickname(),
                 users.getEmail(),
+                users.getRole(),
                 users.getPosts()
                         .stream()
                         .map(this::mapToPostResponse)
