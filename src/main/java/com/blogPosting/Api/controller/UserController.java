@@ -4,6 +4,7 @@ import com.blogPosting.Api.dto.UsersRequestDTO;
 import com.blogPosting.Api.dto.UsersResponseDTO;
 import com.blogPosting.Api.service.UserService;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +23,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UsersResponseDTO> createUsers(@RequestBody UsersRequestDTO request) {
+    public ResponseEntity<@NotNull UsersResponseDTO> createUsers(@RequestBody UsersRequestDTO request) {
 
         UsersResponseDTO responseDTO = service.createUser(request);
 

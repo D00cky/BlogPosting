@@ -19,6 +19,7 @@ import java.util.Set;
 public class Users {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
     @Column(name="email")
