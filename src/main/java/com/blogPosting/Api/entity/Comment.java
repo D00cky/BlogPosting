@@ -1,25 +1,28 @@
 package com.blogPosting.Api.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-//@Entity
-//@Data
-//@Getter
-//@Setter
+@Entity
+@Data
+@Getter
+@Setter
 public class Comment {
-//    @Id
-//    Long id;
-//
-//    @Column(name="title")
-//    String title;
-//
-//    @Column(name="text")
-//    String body;
+    @Id
+    private Long id;
+
+    @Column(name="title")
+    private String title;
+
+    @Column(name="text")
+    private String body;
+
+    @ManyToOne
+    @JoinColumn(name="post_id")
+    private Post post;
+
 
 
 }

@@ -30,9 +30,6 @@ public class Users {
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
-    List<Post> posts = new ArrayList<>();
+    private List<Post> posts = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "role_name")
-    List<Roles> role = new ArrayList<>();
 }
