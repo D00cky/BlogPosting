@@ -7,12 +7,10 @@ import com.blogPosting.Api.entity.Users;
 import com.blogPosting.Api.repository.UsersRepository;
 
 import org.jetbrains.annotations.NotNull;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 
 @Service
 public class UserService {
@@ -26,7 +24,6 @@ public class UserService {
     }
 
     public UsersResponseDTO createUser(@NotNull UsersRequestDTO request) {
-        // needs to finish the logic
         if (usersRepository.findByEmail(request.email()).isEmpty()){
             ResponseEntity.ok("user created");
         } else {

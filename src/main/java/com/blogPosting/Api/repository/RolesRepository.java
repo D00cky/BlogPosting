@@ -10,6 +10,5 @@ import java.util.List;
 
 @Repository
 public interface RolesRepository extends JpaRepository<Roles, Long> {
-    List<Post> findByAuthor(String nickname);
-    List<Post> findByTitle(String title);
+
 }
