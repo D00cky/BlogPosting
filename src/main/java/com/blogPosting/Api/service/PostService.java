@@ -27,10 +27,9 @@ public class PostService {
         }  else {
             throw new RuntimeException("Needs to register before post");
         }
-        Post postEntity = postMapper.mapToPostCreation(post);
-        Post savePost = postRepository.save(postEntity);
+        CreatePostsDTO createPostsDTO = postMapper.mapToPostCreation(post);
 
-        return savePost;
+        return createPostsDTO;
         // if not, tell the user that he needs to register before post
     }
 

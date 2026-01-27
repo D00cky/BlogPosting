@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44d76d1f-7e72-4e57-87f8-9cee1b59114d" name="Changes" comment="Finished Post DTO">
+    <list default="true" id="44d76d1f-7e72-4e57-87f8-9cee1b59114d" name="Changes" comment="Finishing the Service DTO">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/mapper/PostMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/mapper/PostMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/PostRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/RolesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/RolesRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V2__Create_Table_Posts.SQL" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V2__Create_Table_Posts.SQL" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769350012365</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Finishing the Service DTO">
+      <option name="closed" value="true" />
+      <created>1769469110098</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1769469110098</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -207,6 +212,7 @@
     <MESSAGE value="Starts to add the function of the roles." />
     <MESSAGE value="Start to create the Post functions" />
     <MESSAGE value="Finished Post DTO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished Post DTO" />
+    <MESSAGE value="Finishing the Service DTO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finishing the Service DTO" />
   </component>
 </project>
