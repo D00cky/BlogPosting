@@ -9,7 +9,6 @@ import java.util.List;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
-    List<Post> findByAuthor(String nickname);
     List<Post> findByTitle(String title);
-    List<Users> findByEmail(String email);
+    List<Post> findByNickname(String nickname);
 }

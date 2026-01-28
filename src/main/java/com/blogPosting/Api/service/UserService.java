@@ -24,7 +24,7 @@ public class UserService {
     }
 
     public UsersResponseDTO createUser(@NotNull UsersRequestDTO request) {
-        if (usersRepository.findByEmail(request.email()).isEmpty()){
+        if (usersRepository.findByEmail(request.email()).isEmpty() && usersRepository.findByNickname(request.nickname()).isEmpty()){
             ResponseEntity.ok("user created");
         } else {
             ResponseEntity.status(HttpStatus.BAD_REQUEST);

@@ -22,7 +22,7 @@ public class PostService {
     }
 
     public CreatePostsDTO createPost(@NotNull Post post) {
-        if(postRepository.findByEmail(post.getUsers().getEmail()).isEmpty()) {
+        if(postRepository.findByNickname(post.getNickname()).isEmpty()) {
             ResponseEntity.ok("Post Created");
         }  else {
             throw new RuntimeException("Needs to register before post");
