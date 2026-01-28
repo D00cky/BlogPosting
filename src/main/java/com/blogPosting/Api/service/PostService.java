@@ -3,6 +3,7 @@ package com.blogPosting.Api.service;
 import com.blogPosting.Api.dto.CreatePostsDTO;
 import com.blogPosting.Api.dto.mapper.PostMapper;
 import com.blogPosting.Api.entity.Post;
+import com.blogPosting.Api.entity.Users;
 import com.blogPosting.Api.repository.PostRepository;
 
 import org.jetbrains.annotations.NotNull;
@@ -21,7 +22,6 @@ public class PostService {
     }
 
     public CreatePostsDTO createPost(@NotNull Post post) {
-        // checks if the user exists in the database
         if(postRepository.findByEmail(post.getUsers().getEmail()).isEmpty()) {
             ResponseEntity.ok("Post Created");
         }  else {
@@ -30,7 +30,6 @@ public class PostService {
         CreatePostsDTO createPostsDTO = postMapper.mapToPostCreation(post);
 
         return createPostsDTO;
-        // if not, tell the user that he needs to register before post
     }
 
 
