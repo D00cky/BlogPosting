@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
     List<Post> findByTitle(String title);
-    List<Post> findByNickname(String nickname);
+    List<Post> findByNickname(Users users);
 }

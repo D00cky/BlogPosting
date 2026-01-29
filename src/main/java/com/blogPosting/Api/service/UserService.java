@@ -28,7 +28,7 @@ public class UserService {
             ResponseEntity.ok("user created");
         } else {
             ResponseEntity.status(HttpStatus.BAD_REQUEST);
-            throw new RuntimeException("User Already exist");
+            throw new RuntimeException("User Already exists");
 
         }
         Users userEntity = userMapper.mapToUser(request);

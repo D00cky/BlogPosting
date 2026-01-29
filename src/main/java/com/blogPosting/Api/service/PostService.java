@@ -21,15 +21,15 @@ public class PostService {
         this.postRepository = postRepository;
     }
 
-    public CreatePostsDTO createPost(@NotNull Post post) {
-        if(postRepository.findByNickname(post.getNickname()).isEmpty()) {
+    public Post createPost(@NotNull CreatePostsDTO postsDTO) {
+        if(postRepository.findByNickname(postsDTO.user_id()).isEmpty()) {
             ResponseEntity.ok("Post Created");
         }  else {
             throw new RuntimeException("Needs to register before post");
         }
-        CreatePostsDTO createPostsDTO = postMapper.mapToPostCreation(post);
+        Post createPostsDTO = postMapper.mapToPostCreation(postsDTO);
 
-        return createPostsDTO;
+        return postRepository.save(createPostsDTO);
     }
 
 

@@ -1,23 +1,20 @@
 package com.blogPosting.Api.dto.mapper;
 
 import com.blogPosting.Api.dto.CreatePostsDTO;
-import com.blogPosting.Api.entity.Comment;
 import com.blogPosting.Api.entity.Post;
-import com.blogPosting.Api.entity.Users;
 
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 public class PostMapper {
 
-    public CreatePostsDTO mapToPostCreation(Post post) {
-        return new CreatePostsDTO(
-                post.getTitle(),
-                post.getNickname(),
-                post.getBody(),
-                (List<Users>) post.getUsers(),
-                (List<Comment>) post.getComment());
+    public Post mapToPostCreation(CreatePostsDTO postsDTO) {
+        Post post = new Post();
+        post.setTitle(postsDTO.title());
+        post.setNickname(postsDTO.author());
+        post.setBody(postsDTO.body());
+        post.setUsers(postsDTO.user_id());
+        post.setComment(postsDTO.comments());
+        return post;
     }
 }
