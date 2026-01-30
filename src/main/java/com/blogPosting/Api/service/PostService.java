@@ -28,8 +28,9 @@ public class PostService {
             throw new RuntimeException("Needs to register before post");
         }
         Post createPostsDTO = postMapper.mapToPostCreation(postsDTO);
+        Post SavePosts = postRepository.save(createPostsDTO);
 
-        return postRepository.save(createPostsDTO);
+        return SavePosts;
     }
 
 
