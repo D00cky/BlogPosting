@@ -15,23 +15,25 @@ import java.util.List;
 @Table(name="post")
 public class Post {
     @Id
-    Long Id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long Id;
 
     @Column(name="title")
-    String title;
+    private String title;
 
     @Column(name="text")
-    String body;
+    private String body;
 
     @Column(name="author")
-    String nickname;
+    private String nickname;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private Users users;
 
     @OneToMany
     @JoinColumn(name="post_id")
     private List<Comment> comment = new ArrayList<>();
+
 }
 

@@ -28,8 +28,7 @@ public class Users {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @OneToMany(mappedBy = "users", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Post> posts = new ArrayList<>();
 
 }

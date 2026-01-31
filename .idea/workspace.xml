@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44d76d1f-7e72-4e57-87f8-9cee1b59114d" name="Changes" comment="Completed PostController">
+    <list default="true" id="44d76d1f-7e72-4e57-87f8-9cee1b59114d" name="Changes" comment="postDTO continues receiving null data, needs to fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/UsersPostsDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/UsersResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/UsersResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/mapper/PostMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/mapper/PostMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/entity/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/entity/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/entity/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/PostRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/PostService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -220,7 +227,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769712781918</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="postDTO continues receiving null data, needs to fix">
+      <option name="closed" value="true" />
+      <created>1769796062205</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1769796062205</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -247,17 +262,7 @@
     <MESSAGE value="Service DTO finished" />
     <MESSAGE value="Fix incompatible types in postService." />
     <MESSAGE value="Completed PostController" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed PostController" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/PostService.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="postDTO continues receiving null data, needs to fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="postDTO continues receiving null data, needs to fix" />
   </component>
 </project>

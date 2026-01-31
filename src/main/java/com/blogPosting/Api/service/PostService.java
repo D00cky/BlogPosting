@@ -3,7 +3,6 @@ package com.blogPosting.Api.service;
 import com.blogPosting.Api.dto.CreatePostsDTO;
 import com.blogPosting.Api.dto.mapper.PostMapper;
 import com.blogPosting.Api.entity.Post;
-import com.blogPosting.Api.entity.Users;
 import com.blogPosting.Api.repository.PostRepository;
 
 import org.jetbrains.annotations.NotNull;
@@ -22,15 +21,10 @@ public class PostService {
     }
 
     public Post createPost(@NotNull CreatePostsDTO postsDTO) {
-        if(postRepository.findByNickname(postsDTO.user_id()).isEmpty()) {
-            ResponseEntity.ok("Post Created");
-        }  else {
-            throw new RuntimeException("Needs to register before post");
-        }
-        Post createPostsDTO = postMapper.mapToPostCreation(postsDTO);
-        Post SavePosts = postRepository.save(createPostsDTO);
-
-        return SavePosts;
+            Post CreatePost = postMapper.mapToPostCreation(postsDTO);
+            Post SavePost = postRepository.save(CreatePost);
+            ResponseEntity.ok("Post created");
+            return postMapper.mapToPostCreation(postsDTO);
     }
 
 

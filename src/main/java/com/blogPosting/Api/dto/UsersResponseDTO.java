@@ -4,7 +4,7 @@ import java.util.List;
 
 public record UsersResponseDTO(String nickname,
                                String email,
-                               List<UsersPostsDTO> posts) {
+                               List<CreatePostsDTO> posts) {
 
 }
 
