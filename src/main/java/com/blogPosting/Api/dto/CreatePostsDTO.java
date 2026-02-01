@@ -9,6 +9,5 @@ import java.util.List;
 public record CreatePostsDTO(String title,
                              String author,
                              String body,
-                             Users user_id,
-                             List<Comment> comments) {
+                             Long user_id) {
 }

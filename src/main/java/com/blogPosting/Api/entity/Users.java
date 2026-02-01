@@ -28,7 +28,6 @@ public class Users {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(mappedBy = "users", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Post> posts = new ArrayList<>();
+
 
 }

@@ -12,10 +12,8 @@ public class PostMapper {
     public Post mapToPostCreation(CreatePostsDTO postsDTO) {
         Post post = new Post();
         post.setTitle(postsDTO.title());
-        post.setNickname(postsDTO.author());
         post.setBody(postsDTO.body());
-        post.setUsers(postsDTO.user_id());
-        post.setComment(postsDTO.comments());
+        post.setNickname(postsDTO.author());
         return post;
     }
 }

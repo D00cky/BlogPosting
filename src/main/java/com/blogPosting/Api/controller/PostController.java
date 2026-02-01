@@ -8,6 +8,7 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +23,7 @@ public class PostController {
     }
 
     @PostMapping
-    public ResponseEntity<@NotNull Post> createPosts(CreatePostsDTO postsDTO) {
+    public ResponseEntity<@NotNull Post> createPosts(@RequestBody CreatePostsDTO postsDTO) {
         Post newPost = postService.createPost(postsDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(newPost);

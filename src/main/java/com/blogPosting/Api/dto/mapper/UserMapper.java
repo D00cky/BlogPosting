@@ -14,17 +14,9 @@ public class UserMapper {
     public UsersResponseDTO mapToUserResponse(Users users) {
         return new UsersResponseDTO(
                 users.getNickname(),
-                users.getEmail(),
-                users.getPosts()
-                        .stream()
-                        .map(this::mapToPostResponse)
-                        .toList());
+                users.getEmail());
     }
 
-    public CreatePostsDTO mapToPostResponse(Post post) {
-        return new CreatePostsDTO(post.getTitle(), post.getBody(),
-                post.getTitle(), post.getUsers(), post.getComment());
-    }
 
     public Users mapToUser (UsersRequestDTO usersRequest) {
         Users users = new Users();
