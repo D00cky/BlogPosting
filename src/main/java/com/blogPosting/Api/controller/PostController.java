@@ -21,7 +21,7 @@ public class PostController {
     }
 
     @PostMapping("/{userId}")
-    public ResponseEntity<@NotNull PostResponseDTO> createPosts(@RequestBody PostCreateDTO postsDTO, Long userId) {
+    public ResponseEntity<@NotNull PostResponseDTO> createPosts(@RequestBody PostCreateDTO postsDTO, @PathVariable Long userId) {
         PostResponseDTO responseDTO = postService.createPost(userId, postsDTO);
         return ResponseEntity.ok(responseDTO);
     }
