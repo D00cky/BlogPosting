@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
 @Getter
 @Setter
 @Table(name="post")
@@ -30,10 +29,5 @@ public class Post {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private Users users;
-
-    @OneToMany
-    @JoinColumn(name="post_id")
-    private List<Comment> comment = new ArrayList<>();
-
 }
 

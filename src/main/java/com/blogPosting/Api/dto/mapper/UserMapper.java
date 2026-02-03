@@ -1,9 +1,7 @@
 package com.blogPosting.Api.dto.mapper;
 
-import com.blogPosting.Api.dto.CreatePostsDTO;
 import com.blogPosting.Api.dto.UsersRequestDTO;
 import com.blogPosting.Api.dto.UsersResponseDTO;
-import com.blogPosting.Api.entity.Post;
 import com.blogPosting.Api.entity.Users;
 
 import org.springframework.stereotype.Component;
