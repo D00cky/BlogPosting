@@ -8,8 +8,6 @@ import com.blogPosting.Api.entity.Users;
 import com.blogPosting.Api.repository.PostRepository;
 
 import com.blogPosting.Api.repository.UsersRepository;
-import org.jetbrains.annotations.NotNull;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,7 +17,8 @@ public class PostService {
     private final PostRepository postRepository;
     private final UsersRepository usersRepository;
 
-    public PostService(PostMapper postMapper, PostRepository postRepository, UsersRepository usersRepository) {
+    public PostService(PostMapper postMapper, PostRepository postRepository,
+                       UsersRepository usersRepository) {
         this.postMapper = postMapper;
         this.postRepository = postRepository;
         this.usersRepository = usersRepository;

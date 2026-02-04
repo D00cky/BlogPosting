@@ -11,6 +11,7 @@ import lombok.Setter;
 @Setter
 public class Comment {
     @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name="title")
@@ -18,6 +19,10 @@ public class Comment {
 
     @Column(name="text")
     private String body;
+
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private Users users;
 
     @ManyToOne
     @JoinColumn(name="post_id")
