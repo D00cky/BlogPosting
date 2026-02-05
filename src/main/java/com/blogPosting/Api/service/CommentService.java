@@ -1,13 +1,18 @@
 package com.blogPosting.Api.service;
 
 import com.blogPosting.Api.dto.CommentCreateDTO;
+import com.blogPosting.Api.dto.CommentResponseDTO;
 import com.blogPosting.Api.dto.mapper.CommentMapper;
 import com.blogPosting.Api.entity.Comment;
 import com.blogPosting.Api.entity.Post;
+import com.blogPosting.Api.entity.Users;
 import com.blogPosting.Api.repository.CommentRepository;
 import com.blogPosting.Api.repository.PostRepository;
 import com.blogPosting.Api.repository.UsersRepository;
+
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class CommentService {
@@ -19,15 +24,22 @@ public class CommentService {
 
     public CommentService(CommentMapper commentMapper, CommentRepository commentRepository,
                           PostRepository postRepository, UsersRepository usersRepository) {
-                              this.commentMapper = commentMapper;
-                              this.commentRepository = commentRepository;
-                              this.postRepository = postRepository;
-                              this.usersRepository = usersRepository;
-
+        this.usersRepository = usersRepository;
+        this.postRepository = postRepository;
+        this.commentRepository = commentRepository;
+        this.commentMapper = commentMapper;
     }
 
-    public CommentResponseDTO (CommentCreateDTO commentCreateDTO) {
+    public CommentResponseDTO createComment(CommentCreateDTO commentCreateDTO) {
         Post post = postRepository.findByPostTitle(commentCreateDTO.title());
+        Users users = usersRepository.findByNickname(commentCreateDTO.nickname());
+
+        Comment comment = commentMapper.mapToCommentCreation(CommentCreateDTO);
+        comment.setUsers(users);
+        comment.setPost(post);
+
+        Comment saveComment = commentRepository.save(comment);
+        return commentMapper.mapToCommentResponse(saveComment);
 
     }
 }

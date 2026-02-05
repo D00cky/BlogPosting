@@ -6,8 +6,8 @@ import com.blogPosting.Api.dto.mapper.PostMapper;
 import com.blogPosting.Api.entity.Post;
 import com.blogPosting.Api.entity.Users;
 import com.blogPosting.Api.repository.PostRepository;
-
 import com.blogPosting.Api.repository.UsersRepository;
+
 import org.springframework.stereotype.Service;
 
 @Service
