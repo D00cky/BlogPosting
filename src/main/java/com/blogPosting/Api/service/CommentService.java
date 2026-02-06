@@ -32,7 +32,7 @@ public class CommentService {
 
     public CommentResponseDTO createComment(CommentCreateDTO commentCreateDTO) {
         Post post = postRepository.findByPostTitle(commentCreateDTO.title());
-        Users users = usersRepository.findByNickname(commentCreateDTO.nickname());
+        Users users = usersRepository.findUserByName(commentCreateDTO.nickname());
 
         Comment comment = commentMapper.mapToCommentCreation(CommentCreateDTO);
         comment.setUsers(users);

@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44d76d1f-7e72-4e57-87f8-9cee1b59114d" name="Changes" comment="&#10;- [x] **Migration V3:** Script SQL para tabela `comments` (FKs `user_id` e `post_id`).&#10;    &#10;- [x] **Entidade Comment:** Mapear relacionamentos `@ManyToOne` para User e Post.">
+    <list default="true" id="44d76d1f-7e72-4e57-87f8-9cee1b59114d" name="Changes" comment="Finishin service">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/controller/CommentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/CommentRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/PostRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/UsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/UsersRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/CommentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V3__create_comment_table.SQL" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V3__create_comment_table.SQL" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blogPosting/Api/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/blogPosting/Api/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +286,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770197747929</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Finishin service">
+      <option name="closed" value="true" />
+      <created>1770284679686</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1770284679686</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -310,12 +326,13 @@
     <MESSAGE value="Finished the service and controller, Fix the Mapper and the Repository and change to Page method, using ManyToOne Relationship, only in the child for performance tests." />
     <MESSAGE value="Added @PathVariable to the post controller." />
     <MESSAGE value="Added @PathVariable to the post controller.&#10;&#10;- [x] **Migration V3:** Script SQL para tabela `comments` (FKs `user_id` e `post_id`).&#10;    &#10;- [x] **Entidade Comment:** Mapear relacionamentos `@ManyToOne` para User e Post." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added @PathVariable to the post controller.&#10;&#10;- [x] **Migration V3:** Script SQL para tabela `comments` (FKs `user_id` e `post_id`).&#10;    &#10;- [x] **Entidade Comment:** Mapear relacionamentos `@ManyToOne` para User e Post." />
+    <MESSAGE value="Finishin service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finishin service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>

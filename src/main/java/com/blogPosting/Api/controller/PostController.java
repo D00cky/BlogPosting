@@ -22,7 +22,7 @@ public class PostController {
 
     @PostMapping("/{userId}")
     public ResponseEntity<@NotNull PostResponseDTO> createPosts(@RequestBody PostCreateDTO postsDTO, @PathVariable Long userId) {
-        PostResponseDTO responseDTO = postService.createPost(userId, postsDTO);
+        PostResponseDTO responseDTO = postService.createPost(postsDTO);
         return ResponseEntity.ok(responseDTO);
     }
 }

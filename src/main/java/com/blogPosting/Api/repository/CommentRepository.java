@@ -7,7 +7,4 @@ import java.util.Optional;
 
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {
-
-    Optional<Comment>findByUserNickname(String name);
-    Optional<Comment>findByPostTitle(String title);
 }

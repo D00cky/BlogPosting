@@ -24,8 +24,8 @@ public class PostService {
         this.usersRepository = usersRepository;
     }
 
-    public PostResponseDTO createPost(Long userId, PostCreateDTO postCreateDTO) {
-        Users users = usersRepository.getReferenceById(userId);
+    public PostResponseDTO createPost(PostCreateDTO postCreateDTO) {
+        Users users = usersRepository.findUserByName(postCreateDTO.author());
 
         Post post = postMapper.mapToPostCreation(postCreateDTO);
 

@@ -15,6 +15,6 @@ import java.util.Optional;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
-    @Query("select t from Post t where t.title = :title")
-    Post findByPostTitle(String title);
+    @Query("select p from Post p where p.title = :title")
+    Post findByPostTitle(@Param("title")String title);
 }
