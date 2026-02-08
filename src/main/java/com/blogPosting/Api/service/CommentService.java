@@ -10,6 +10,7 @@ import com.blogPosting.Api.repository.CommentRepository;
 import com.blogPosting.Api.repository.PostRepository;
 import com.blogPosting.Api.repository.UsersRepository;
 
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -29,7 +30,7 @@ public class CommentService {
         this.commentRepository = commentRepository;
         this.commentMapper = commentMapper;
     }
-
+//    @Transactional
 //    public CommentResponseDTO createComment(CommentCreateDTO commentCreateDTO) {
 //        Post post = postRepository.findByPostTitle(commentCreateDTO.title());
 //        Users users = usersRepository.findUserByName(commentCreateDTO.nickname());

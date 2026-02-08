@@ -3,6 +3,7 @@ package com.blogPosting.Api.controller;
 import com.blogPosting.Api.dto.PostCreateDTO;
 import com.blogPosting.Api.dto.PostResponseDTO;
 import com.blogPosting.Api.entity.Post;
+import com.blogPosting.Api.entity.Users;
 import com.blogPosting.Api.service.PostService;
 
 import org.jetbrains.annotations.NotNull;
@@ -20,9 +21,9 @@ public class PostController {
         this.postService = postService;
     }
 
-//    @PostMapping("/{userId}")
-//    public ResponseEntity<@NotNull PostResponseDTO> createPosts(@RequestBody PostCreateDTO postsDTO, @PathVariable Long userId) {
-//        PostResponseDTO responseDTO = postService.createPost(postsDTO);
-//        return ResponseEntity.ok(responseDTO);
-//    }
+    @PostMapping
+    public ResponseEntity<@NotNull PostResponseDTO> createPosts(@RequestBody PostCreateDTO postsDTO) {
+        PostResponseDTO responseDTO = postService.createPost(postsDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
+    }
 }

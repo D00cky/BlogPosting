@@ -4,16 +4,18 @@ import com.blogPosting.Api.dto.PostCreateDTO;
 import com.blogPosting.Api.dto.PostResponseDTO;
 import com.blogPosting.Api.entity.Post;
 
+import com.blogPosting.Api.entity.Users;
 import org.springframework.stereotype.Component;
 
 @Component
 public class PostMapper {
 
-    public Post mapToPostCreation(PostCreateDTO postsDTO) {
+    public Post mapToPostCreation(PostCreateDTO postsDTO, Users users) {
         Post post = new Post();
         post.setTitle(postsDTO.title());
-        post.setBody(postsDTO.text());
         post.setNickname(postsDTO.author());
+        post.setBody(postsDTO.text());
+        post.setUsers(users);
         return post;
     }
 
@@ -21,7 +23,6 @@ public class PostMapper {
         return new PostResponseDTO(
                 post.getId(),
                 post.getTitle(),
-                post.getUsers().getId(),
                 post.getUsers().getNickname()
         );
     }

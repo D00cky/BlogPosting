@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44d76d1f-7e72-4e57-87f8-9cee1b59114d" name="Changes" comment="Finished, Comment entity, and service, needs to text, next step finishing conditions">
+    <list default="true" id="44d76d1f-7e72-4e57-87f8-9cee1b59114d" name="Changes" comment="finished the user service logic, for checking users">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/PostResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/PostResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/mapper/PostMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/mapper/PostMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/entity/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/entity/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/PostRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/UsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/UsersRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/CommentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/PostService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V3__create_comment_table.SQL" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V3__create_comment_table.SQL" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/blogPosting/Api/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/blogPosting/Api/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,32 +60,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.BlogPostingApiApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Maven.Api [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Api [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Api [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Api [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Api [test].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Api [validate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Api [verify].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.demo [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.demo [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.demo [install].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/d00/Downloads/XiaoMiToolV2&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.41609195&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.BlogPostingApiApplication.executor": "Debug",
+    "Maven.Api [clean].executor": "Run",
+    "Maven.Api [compile].executor": "Run",
+    "Maven.Api [install].executor": "Run",
+    "Maven.Api [package].executor": "Run",
+    "Maven.Api [test].executor": "Run",
+    "Maven.Api [validate].executor": "Run",
+    "Maven.Api [verify].executor": "Run",
+    "Maven.demo [clean].executor": "Run",
+    "Maven.demo [compile].executor": "Run",
+    "Maven.demo [install].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/d00/Downloads/XiaoMiToolV2",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.41609195",
+    "settings.editor.selected.configurable": "File.Encoding"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/BlogPosting" />
@@ -305,7 +310,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770412375334</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="finished the user service logic, for checking users">
+      <option name="closed" value="true" />
+      <created>1770553816069</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1770553816069</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -339,7 +352,8 @@
     <MESSAGE value="Added @PathVariable to the post controller.&#10;&#10;- [x] **Migration V3:** Script SQL para tabela `comments` (FKs `user_id` e `post_id`).&#10;    &#10;- [x] **Entidade Comment:** Mapear relacionamentos `@ManyToOne` para User e Post." />
     <MESSAGE value="Finishin service" />
     <MESSAGE value="Finished, Comment entity, and service, needs to text, next step finishing conditions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished, Comment entity, and service, needs to text, next step finishing conditions" />
+    <MESSAGE value="finished the user service logic, for checking users" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished the user service logic, for checking users" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

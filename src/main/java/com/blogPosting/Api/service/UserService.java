@@ -8,8 +8,9 @@ import com.blogPosting.Api.repository.UsersRepository;
 
 import jakarta.transaction.Transactional;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-
+import org.springframework.web.server.ResponseStatusException;
 
 
 @Service
@@ -29,7 +30,7 @@ public class UserService {
         if(usersRepository.findUserByNickname(request.nickname()).isPresent()
                 || usersRepository.findByEmail(request.email()).isPresent()) {
             // 2. If the user exists, throw an error
-            throw new RuntimeException("User Already Exists");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User Already registered");
         }
         // 3. If not, create a new user.
         Users userEntity = userMapper.mapToUser(request);

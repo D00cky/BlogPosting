@@ -8,7 +8,12 @@ import com.blogPosting.Api.entity.Users;
 import com.blogPosting.Api.repository.PostRepository;
 import com.blogPosting.Api.repository.UsersRepository;
 
+import jakarta.transaction.Transactional;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Optional;
 
 @Service
 public class PostService {
@@ -24,16 +29,22 @@ public class PostService {
         this.usersRepository = usersRepository;
     }
 
-//    public PostResponseDTO createPost(PostCreateDTO postCreateDTO) {
-//        Users users = usersRepository.findUserByName(postCreateDTO.author());
-//
-//        Post post = postMapper.mapToPostCreation(postCreateDTO);
-//
-//        post.setUsers(users);
-//
-//        Post savePost = postRepository.save(post);
-//
-//        return postMapper.mapToPostResponse(savePost);
-//        return null;
-//    }
+    @Transactional
+    public PostResponseDTO createPost(PostCreateDTO postCreateDTO) {
+        //1. check if the users is already registered.
+        Users users = usersRepository.findUserByNickname(postCreateDTO.author().toLowerCase())
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "user not found"));
+
+        //3. if true then create post
+        Post post = postMapper.mapToPostCreation(postCreateDTO, users);
+
+        //4. save the post into the database.
+        Post savePost = postRepository.save(post);
+
+        //5. return message that the post is created.
+        return postMapper.mapToPostResponse(savePost);
+
+
+
+    }
 }
