@@ -1,83 +1,82 @@
 # ☕ Blog API (Spring Boot)
 
-> Um sistema backend robusto focado em integridade de dados, performance e arquitetura limpa.
+> A robust backend system focused on data integrity, performance, and clean architecture.
 
-## 📖 Visão Geral
+## 📖 Overview
 
-O **Blog API** é uma aplicação RESTful desenvolvida para gerenciar uma plataforma de conteúdo completa. O projeto segue o padrão de **Monolito Modular em Camadas**, garantindo uma separação clara de responsabilidades entre Controladores, Serviços e Repositórios.
+The **Blog API** is a RESTful application developed to manage a complete content platform. The project follows the **Layered Modular Monolith** pattern, ensuring a clear separation of responsibilities between Controllers, Services, and Repositories.
 
-O ambiente de desenvolvimento é **100% containerizado**, utilizando Docker para orquestrar o banco de dados e o cache, facilitando o setup em qualquer máquina ("Write once, run anywhere").
+The development environment is **100% containerized**, using Docker to orchestrate the database and cache, facilitating setup on any machine ("Write once, run anywhere").
 
 ## 🛠️ Tech Stack
 
-| Categoria | Tecnologias |
+| Category | Technologies |
 | --- | --- |
 | **Core** | Java 21, Spring Boot 3.x, Maven |
-| **Banco de Dados** | PostgreSQL 16 (Persistência Principal) |
-| **Cache/Performance** | Valkey (Compatível com Redis) |
+| **Database** | PostgreSQL 16 (Primary Persistence) |
+| **Cache/Performance** | Valkey (Redis Compatible) |
 | **ORM & Migrations** | Spring Data JPA (Hibernate), Flyway |
 | **DevOps** | Docker, Docker Compose |
 | **Utils** | Lombok, Bean Validation, Spring DevTools |
 
 ---
 
-## 🏗️ Arquitetura e Dados
+## 🏗️ Architecture & Data
 
-O sistema foi desenhado pensando na escalabilidade do modelo de dados. As entidades se relacionam seguindo a lógica de **Desacoplamento**, onde o lado "Muitos" (Child) detém a chave estrangeira, permitindo consultas otimizadas via Repository.
+The system was designed with data model scalability in mind. Entities are related following a **Decoupling** logic, where the "Many" side (Child) holds the foreign key, allowing for optimized queries via Repository.
 
-### Entidades Principais
+### Main Entities
 
-* **👤 User:** Gerencia identidade e acesso (`id`, `email`, `roles`).
-* **📝 Post:** Conteúdo textual vinculado a um autor (`title`, `content`, `user_id`).
-* **💬 Comment:** Interações dos usuários nos posts (`content`, `user_id`, `post_id`).
+* **👤 User:** Manages identity and access (`id`, `email`, `roles`).
+* **📝 Post:** Textual content linked to an author (`title`, `content`, `user_id`).
+* **💬 Comment:** User interactions on posts (`content`, `user_id`, `post_id`).
 
 ---
 
-## 🚀 Roadmap do Projeto
+## 🚀 Project Roadmap
 
-Abaixo, o status atual do desenvolvimento guiado por fases.
+Below is the current development status, guided by phases.
 
-### ✅ Fase 0: Alicerce & Infraestrutura
+### ✅ Phase 0: Foundation & Infrastructure
 
-*Setup do ambiente "Chão de Fábrica".*
+*Setting up the "Factory Floor" environment.*
 
-* [x] Criação do Repositório Git.
-* [x] Configuração do `docker-compose.yaml` (Postgres + Valkey).
-* [x] Setup do projeto no Spring Initializr.
-* [x] Health Check (Aplicação rodando na porta 8080).
+* [x] Git Repository creation.
+* [x] `docker-compose.yaml` configuration (Postgres + Valkey).
+* [x] Spring Initializr project setup.
+* [x] Health Check (Application running on port 8080).
 
-### ✅ Fase 1: Módulo de Usuários (Identity)
+### ✅ Phase 1: User Module (Identity)
 
-*Quem manda no sistema.*
+*Who rules the system.*
 
-* [x] Flyway V1: Tabelas `users` e `roles`.
-* [x] Criação das Entidades `User` e `Role`.
-* [x] Repository e Service com validação de email único.
-* [x] Endpoints: `POST /users` e `GET /users/{id}`.
+* [x] Flyway V1: `users` and `roles` tables.
+* [x] Creation of `User` and `Role` Entities.
+* [x] Repository and Service with unique email validation.
+* [x] Endpoints: `POST /users` and `GET /users/{id}`.
 
-### ✅ Fase 2: Conteúdo & Relacionamentos (Core)
+### ✅ Phase 2: Content & Relationships (Core)
 
-*Vinculando autores ao conteúdo.*
+*Linking authors to content.*
 
-* [x] Flyway V2: Tabela `posts` com FK.
-* [x] Entidade `Post` com relacionamento `@ManyToOne`.
-* [x] Service "Link": Busca User -> Cria Post.
+* [x] Flyway V2: `posts` table with FK.
+* [x] `Post` Entity with `@ManyToOne` relationship.
+* [x] "Link" Service: Fetch User -> Create Post.
 * [x] Endpoint: `POST /posts`.
 
-### 🚧 Fase 3: Interação & Complexidade (Em Progresso)
+### 🚧 Phase 3: Interaction & Complexity (In Progress)
 
-*Relacionamentos duplos e regras de negócio.*
+*Double relationships and business rules.*
 
-* [ ] Flyway V3: Tabela `comments`.
-* [ ] Entidade `Comment` (User + Post).
-* [ ] Endpoint Aninhado: `POST /posts/{postId}/comments`.
-* [ ] Validações de integridade (Comentário vazio, User inexistente).
+* [x] Flyway V3: `comments` table.
+* [x] `Comment` Entity (User + Post).
+* [ ] Nested Endpoint: `POST /posts/{postId}/comments`.
+* [ ] Integrity validations (Empty comment, nonexistent User).
 
-### ⏳ Fase 4: Performance & Otimização (Futuro)
+### ⏳ Phase 4: Performance & Optimization (Future)
 
-*Cache distribuído.*
+*Distributed caching.*
 
-* [ ] Configuração do Redis/Valkey no Spring.
-* [ ] Cache Strategy: `@Cacheable` em leituras (`findAll`).
-* [ ] Cache Eviction: `@CacheEvict` em escritas (`save`).
-
+* [ ] Redis/Valkey configuration in Spring.
+* [ ] Cache Strategy: `@Cacheable` on reads (`findAll`).
+* [ ] Cache Eviction: `@CacheEvict` on writes (`save`).
