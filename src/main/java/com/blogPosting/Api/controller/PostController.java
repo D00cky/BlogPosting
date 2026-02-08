@@ -2,8 +2,6 @@ package com.blogPosting.Api.controller;
 
 import com.blogPosting.Api.dto.PostCreateDTO;
 import com.blogPosting.Api.dto.PostResponseDTO;
-import com.blogPosting.Api.entity.Post;
-import com.blogPosting.Api.entity.Users;
 import com.blogPosting.Api.service.PostService;
 
 import org.jetbrains.annotations.NotNull;

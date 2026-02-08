@@ -11,9 +11,10 @@ import com.blogPosting.Api.repository.PostRepository;
 import com.blogPosting.Api.repository.UsersRepository;
 
 import jakarta.transaction.Transactional;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
-import java.util.Optional;
 
 @Service
 public class CommentService {
@@ -30,17 +31,24 @@ public class CommentService {
         this.commentRepository = commentRepository;
         this.commentMapper = commentMapper;
     }
-//    @Transactional
-//    public CommentResponseDTO createComment(CommentCreateDTO commentCreateDTO) {
-//        Post post = postRepository.findByPostTitle(commentCreateDTO.title());
-//        Users users = usersRepository.findUserByName(commentCreateDTO.nickname());
+    @Transactional
+    public CommentResponseDTO createComment(CommentCreateDTO commentCreateDTO) {
 
-//        Comment comment = commentMapper.mapToCommentCreation(commentCreateDTO);
-//        comment.setUsers(users);
-//        comment.setPost(post);
+        //1. Check if the post Exists
+        Post searchPost = postRepository.findByTitle(commentCreateDTO.title())
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Post not found"));
 
-//        Comment saveComment = commentRepository.save(comment);
-//        return commentMapper.mapToCommentResponse(saveComment);
-//        return null;
-//    }
+        //2. Check if the user exists
+        Users checkUser = usersRepository.findUserByNickname(commentCreateDTO.nickname().toLowerCase())
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "user not found"));
+
+        //3. Create comment in the post
+        Comment comment = commentMapper.mapToCommentCreation(commentCreateDTO, searchPost, checkUser);
+
+        //4. Save
+        Comment saveComment = commentRepository.save(comment);
+
+        //5. return
+        return commentMapper.mapToCommentResponse(saveComment);
+    }
 }

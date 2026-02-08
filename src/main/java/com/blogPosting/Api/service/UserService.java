@@ -27,8 +27,8 @@ public class UserService {
     @Transactional
     public UsersResponseDTO createUser(@NotNull UsersRequestDTO request) {
         // 1. check if the users exists
-        if(usersRepository.findUserByNickname(request.nickname()).isPresent()
-                || usersRepository.findByEmail(request.email()).isPresent()) {
+        if(!usersRepository.findUserByNickname(request.nickname()).isEmpty()
+                || !usersRepository.findByEmail(request.email()).isEmpty()) {
             // 2. If the user exists, throw an error
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User Already registered");
         }
