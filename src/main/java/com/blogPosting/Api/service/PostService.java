@@ -24,15 +24,16 @@ public class PostService {
         this.usersRepository = usersRepository;
     }
 
-    public PostResponseDTO createPost(PostCreateDTO postCreateDTO) {
-        Users users = usersRepository.findUserByName(postCreateDTO.author());
-
-        Post post = postMapper.mapToPostCreation(postCreateDTO);
-
-        post.setUsers(users);
-
-        Post savePost = postRepository.save(post);
-
-        return postMapper.mapToPostResponse(savePost);
-    }
+//    public PostResponseDTO createPost(PostCreateDTO postCreateDTO) {
+//        Users users = usersRepository.findUserByName(postCreateDTO.author());
+//
+//        Post post = postMapper.mapToPostCreation(postCreateDTO);
+//
+//        post.setUsers(users);
+//
+//        Post savePost = postRepository.save(post);
+//
+//        return postMapper.mapToPostResponse(savePost);
+//        return null;
+//    }
 }

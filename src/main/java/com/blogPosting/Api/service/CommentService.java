@@ -30,16 +30,16 @@ public class CommentService {
         this.commentMapper = commentMapper;
     }
 
-    public CommentResponseDTO createComment(CommentCreateDTO commentCreateDTO) {
-        Post post = postRepository.findByPostTitle(commentCreateDTO.title());
-        Users users = usersRepository.findUserByName(commentCreateDTO.nickname());
+//    public CommentResponseDTO createComment(CommentCreateDTO commentCreateDTO) {
+//        Post post = postRepository.findByPostTitle(commentCreateDTO.title());
+//        Users users = usersRepository.findUserByName(commentCreateDTO.nickname());
 
-        Comment comment = commentMapper.mapToCommentCreation(commentCreateDTO);
-        comment.setUsers(users);
-        comment.setPost(post);
+//        Comment comment = commentMapper.mapToCommentCreation(commentCreateDTO);
+//        comment.setUsers(users);
+//        comment.setPost(post);
 
-        Comment saveComment = commentRepository.save(comment);
-        return commentMapper.mapToCommentResponse(saveComment);
-
-    }
+//        Comment saveComment = commentRepository.save(comment);
+//        return commentMapper.mapToCommentResponse(saveComment);
+//        return null;
+//    }
 }

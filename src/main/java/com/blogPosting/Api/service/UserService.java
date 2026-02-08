@@ -8,12 +8,8 @@ import com.blogPosting.Api.repository.UsersRepository;
 
 import jakarta.transaction.Transactional;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.http.HttpRequest;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.HttpStatusCodeException;
+
 
 
 @Service
@@ -29,15 +25,18 @@ public class UserService {
 
     @Transactional
     public UsersResponseDTO createUser(@NotNull UsersRequestDTO request) {
-        // Procura o usuario no banco
-        Users findUser = usersRepository.findUserByName(request.nickname());
-        // 1. Verificar se o usuario existe
-        // 3. Se nao, Cria o novo usuario.
-            Users userEntity = userMapper.mapToUser(request);
-            // 4. salva no banco
-            Users savedUser = usersRepository.save(userEntity);
-            // 5. Retorna mensagem de usuario criado
-            return userMapper.mapToUserResponse(savedUser);
-        // 2. Se tiver, informar usuario existente
+        // 1. check if the users exists
+        if(usersRepository.findUserByNickname(request.nickname()).isPresent()
+                || usersRepository.findByEmail(request.email()).isPresent()) {
+            // 2. If the user exists, throw an error
+            throw new RuntimeException("User Already Exists");
+        }
+        // 3. If not, create a new user.
+        Users userEntity = userMapper.mapToUser(request);
+        // 4. Save in the database.
+        Users savedUser = usersRepository.save(userEntity);
+        // 5. Returns message of user created.
+        return userMapper.mapToUserResponse(savedUser);
+
     }
 }
