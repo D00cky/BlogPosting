@@ -5,6 +5,7 @@ import com.blogPosting.Api.dto.PostResponseDTO;
 import com.blogPosting.Api.dto.mapper.PostMapper;
 import com.blogPosting.Api.entity.Post;
 import com.blogPosting.Api.entity.Users;
+import com.blogPosting.Api.exception.ResourceNotFoundException;
 import com.blogPosting.Api.repository.PostRepository;
 import com.blogPosting.Api.repository.UsersRepository;
 
@@ -31,8 +32,8 @@ public class PostService {
     @Transactional
     public PostResponseDTO createPost(PostCreateDTO postCreateDTO) {
         //1. check if the users is already registered.
-        Users users = usersRepository.findUserByNickname(postCreateDTO.author().toLowerCase())
-                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "user not found"));
+        Users users = usersRepository.findUserByNickname(postCreateDTO.author())
+                .orElseThrow(()-> new ResourceNotFoundException("User not found, please register before post"));
 
         //3. if true then create post
         Post post = postMapper.mapToPostCreation(postCreateDTO, users);

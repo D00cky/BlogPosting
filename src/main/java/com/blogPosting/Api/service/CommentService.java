@@ -6,6 +6,7 @@ import com.blogPosting.Api.dto.mapper.CommentMapper;
 import com.blogPosting.Api.entity.Comment;
 import com.blogPosting.Api.entity.Post;
 import com.blogPosting.Api.entity.Users;
+import com.blogPosting.Api.exception.ResourceNotFoundException;
 import com.blogPosting.Api.repository.CommentRepository;
 import com.blogPosting.Api.repository.PostRepository;
 import com.blogPosting.Api.repository.UsersRepository;
@@ -36,11 +37,11 @@ public class CommentService {
 
         //1. Check if the post Exists
         Post searchPost = postRepository.findByTitle(commentCreateDTO.title())
-                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Post not found"));
+                .orElseThrow(()-> new ResourceNotFoundException("Post with the title not found: " + commentCreateDTO.title()));
 
         //2. Check if the user exists
-        Users checkUser = usersRepository.findUserByNickname(commentCreateDTO.nickname().toLowerCase())
-                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "user not found"));
+        Users checkUser = usersRepository.findUserByNickname(commentCreateDTO.nickname())
+                .orElseThrow(()-> new ResourceNotFoundException("User not found, check again: " + commentCreateDTO.nickname()));
 
         //3. Create comment in the post
         Comment comment = commentMapper.mapToCommentCreation(commentCreateDTO, searchPost, checkUser);

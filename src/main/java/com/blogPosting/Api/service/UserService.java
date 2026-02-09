@@ -4,6 +4,7 @@ import com.blogPosting.Api.dto.UsersRequestDTO;
 import com.blogPosting.Api.dto.UsersResponseDTO;
 import com.blogPosting.Api.dto.mapper.UserMapper;
 import com.blogPosting.Api.entity.Users;
+import com.blogPosting.Api.exception.ResourceNotFoundException;
 import com.blogPosting.Api.repository.UsersRepository;
 
 import jakarta.transaction.Transactional;
@@ -27,10 +28,12 @@ public class UserService {
     @Transactional
     public UsersResponseDTO createUser(@NotNull UsersRequestDTO request) {
         // 1. check if the users exists
-        if(!usersRepository.findUserByNickname(request.nickname()).isEmpty()
-                || !usersRepository.findByEmail(request.email()).isEmpty()) {
-            // 2. If the user exists, throw an error
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User Already registered");
+        if(!usersRepository.findUserByNickname(request.nickname()).isEmpty()) {
+            new ResourceNotFoundException("Nickname Already used: " + request.nickname());
+        }
+        // 2. If the user exists, throw an error
+        if(!usersRepository.findByEmail(request.email()).isEmpty()) {
+            new ResourceNotFoundException("Email Already used:" + request.nickname());
         }
         // 3. If not, create a new user.
         Users userEntity = userMapper.mapToUser(request);
