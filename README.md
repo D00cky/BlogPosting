@@ -64,14 +64,14 @@ Below is the current development status, guided by phases.
 * [x] "Link" Service: Fetch User -> Create Post.
 * [x] Endpoint: `POST /posts`.
 
-### 🚧 Phase 3: Interaction & Complexity (In Progress)
+### ✅ Phase 3: Interaction & Complexity
 
 *Double relationships and business rules.*
 
 * [x] Flyway V3: `comments` table.
 * [x] `Comment` Entity (User + Post).
-* [ ] Nested Endpoint: `POST /posts/{postId}/comments`.
-* [ ] Integrity validations (Empty comment, nonexistent User).
+* [x] Nested Endpoint: `POST /posts/{postId}/comments`.
+* [x] Integrity validations (Empty comment, nonexistent User).
 
 ### ⏳ Phase 4: Performance & Optimization (Future)
 
