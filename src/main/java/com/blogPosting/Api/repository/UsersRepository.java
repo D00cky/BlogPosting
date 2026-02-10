@@ -1,16 +1,17 @@
 package com.blogPosting.Api.repository;
 
 import com.blogPosting.Api.dto.UsersResponseDTO;
+import com.blogPosting.Api.entity.Post;
 import com.blogPosting.Api.entity.Users;
 
 
 import io.lettuce.core.dynamic.annotation.Param;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import javax.swing.text.html.Option;
-import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -20,4 +21,7 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
         Optional<Users> findByEmail(String email);
 //    @Query(value = "SELECT u FROM Users u WHERE u.nickname = :nickname", nativeQuery = true)
         Optional<Users> findUserByNickname(String nickname);
+
+//    Page<Users> findByPostId(Long postId, Pageable pageable);
+
 }

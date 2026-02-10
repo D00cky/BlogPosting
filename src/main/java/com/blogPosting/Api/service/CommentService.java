@@ -33,19 +33,18 @@ public class CommentService {
     }
     @Transactional
     public CommentResponseDTO createComment(CommentCreateDTO commentCreateDTO) {
-
         //1. Check if the post Exists
-        Post searchPost = postRepository.findByTitle(commentCreateDTO.title())
+        Post searchPostByTitle = postRepository.findByTitle(commentCreateDTO.title())
                 .orElseThrow(() -> {
                     return new BlogException(BlogPostingErrorMessage.POST_NOT_FOUND);});
 
         //2. Check if the user exists
-        Users checkUser = usersRepository.findUserByNickname(commentCreateDTO.nickname())
+        Users checkUserByName = usersRepository.findUserByNickname(commentCreateDTO.nickname())
                 .orElseThrow(() -> {
                     return new BlogException(BlogPostingErrorMessage.USER_NOT_FOUND);});
 
         //3. Create comment in the post
-        Comment comment = commentMapper.mapToCommentCreation(commentCreateDTO, searchPost, checkUser);
+        Comment comment = commentMapper.mapToCommentCreation(commentCreateDTO, searchPostByTitle, checkUserByName);
 
         //4. Save
         Comment saveComment = commentRepository.save(comment);

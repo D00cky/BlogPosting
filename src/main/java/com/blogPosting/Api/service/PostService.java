@@ -11,6 +11,8 @@ import com.blogPosting.Api.repository.PostRepository;
 import com.blogPosting.Api.repository.UsersRepository;
 
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
@@ -44,7 +46,7 @@ public class PostService {
         //5. return message that the post is created.
         return postMapper.mapToPostResponse(savePost);
 
-
-
     }
+
 }
+
