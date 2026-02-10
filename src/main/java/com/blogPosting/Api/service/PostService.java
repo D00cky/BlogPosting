@@ -5,14 +5,13 @@ import com.blogPosting.Api.dto.PostResponseDTO;
 import com.blogPosting.Api.dto.mapper.PostMapper;
 import com.blogPosting.Api.entity.Post;
 import com.blogPosting.Api.entity.Users;
-import com.blogPosting.Api.exception.ResourceNotFoundException;
+import com.blogPosting.Api.exception.BlogException;
+import com.blogPosting.Api.exception.BlogPostingErrorMessage;
 import com.blogPosting.Api.repository.PostRepository;
 import com.blogPosting.Api.repository.UsersRepository;
 
 import jakarta.transaction.Transactional;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 
 @Service
@@ -33,7 +32,8 @@ public class PostService {
     public PostResponseDTO createPost(PostCreateDTO postCreateDTO) {
         //1. check if the users is already registered.
         Users users = usersRepository.findUserByNickname(postCreateDTO.author())
-                .orElseThrow(()-> new ResourceNotFoundException("User not found, please register before post"));
+                .orElseThrow(() -> {
+                    return new BlogException(BlogPostingErrorMessage.USER_NOT_FOUND);});
 
         //3. if true then create post
         Post post = postMapper.mapToPostCreation(postCreateDTO, users);

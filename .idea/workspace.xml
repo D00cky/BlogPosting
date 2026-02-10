@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44d76d1f-7e72-4e57-87f8-9cee1b59114d" name="Changes" comment="Concluded Comment service, comments are working.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/exception/ResourceNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/exception/StandardError.java" afterDir="false" />
+    <list default="true" id="44d76d1f-7e72-4e57-87f8-9cee1b59114d" name="Changes" comment="Added Exceptions Handlers for each requisition error.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/BlogErrorDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/exception/BlogPostingErrorMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/exception/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/exception/BlogException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/CommentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/PostService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/UserService.java" afterDir="false" />
@@ -23,9 +25,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Dockerfile" />
-        <option value="Enum" />
         <option value="Record" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -84,6 +86,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.blogPosting.Api.exception" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/BlogPosting" />
     </key>
@@ -340,7 +345,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770571620976</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added Exceptions Handlers for each requisition error.">
+      <option name="closed" value="true" />
+      <created>1770629505608</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1770629505608</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -377,7 +390,8 @@
     <MESSAGE value="finished the user service logic, for checking users" />
     <MESSAGE value="Finished the Post Logic, now we check if the user exists or not and returns an exception." />
     <MESSAGE value="Concluded Comment service, comments are working." />
-    <option name="LAST_COMMIT_MESSAGE" value="Concluded Comment service, comments are working." />
+    <MESSAGE value="Added Exceptions Handlers for each requisition error." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Exceptions Handlers for each requisition error." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -406,21 +420,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/mapper/UserMapper.java</url>
-          <line>18</line>
-          <properties class="com.blogPosting.Api.dto.mapper.UserMapper" method="mapToUser">
+          <line>11</line>
+          <properties class="com.blogPosting.Api.dto.mapper.UserMapper" method="mapToUserResponse">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="37" />
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/PostService.java</url>
-          <line>32</line>
-          <properties class="com.blogPosting.Api.service.PostService" method="createPost">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="39" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/UsersRepository.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

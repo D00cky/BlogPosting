@@ -1,51 +1,90 @@
 package com.blogPosting.Api.exception;
 
-import jakarta.servlet.http.HttpServlet;
+import com.blogPosting.Api.dto.BlogErrorDTO;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
+import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import java.time.Instant;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<StandardError> resourceNotFound(ResourceNotFoundException e, HttpServletRequest request) {
-        String error = "Resource not found";
-        HttpStatus status = HttpStatus.NOT_FOUND;
+    @ExceptionHandler(BlogException.class)
+    public ResponseEntity<BlogErrorDTO> handleBlogException(BlogException exception) {
+        final BlogPostingErrorMessage errorMessage = exception.getErrorMessage();
+        final HttpStatus status = BlogPostingErrorMessage.getHttpStatus(errorMessage);
+        final BlogErrorDTO body = createBlogError(errorMessage);
+        return ResponseEntity.status(status).body(body);
+    }
 
-        StandardError err = new StandardError(Instant.now(), status.value(),
-                error, e.getMessage(), request.getRequestURI());
+    @ExceptionHandler(value ={
+            MethodArgumentTypeMismatchException.class,
+    })
+    public ResponseEntity<BlogErrorDTO> handleExceptions(MethodArgumentTypeMismatchException exception) {
+        final BlogPostingErrorMessage errorMessage = BlogPostingErrorMessage.BAD_REQUEST;
+        final HttpStatus status = BlogPostingErrorMessage.getHttpStatus(errorMessage);
 
-        return ResponseEntity.status(status).body(err);
+        final String paramName = exception.getName();
+
+        String requiredTypeName = "unknown";
+        if (exception.getRequiredType() != null) {
+            requiredTypeName = exception.getRequiredType().getSimpleName();
+        }
+
+        String providedTypeName = "unknown";
+        if (exception.getValue() != null) {
+            providedTypeName = exception.getValue().getClass().getSimpleName();
+        }
+
+        final String message = String.format(
+                "Invalid value for parameter '%S'. Expected type: '%s', but got: '%s'.",
+                paramName, requiredTypeName, providedTypeName
+        );
+
+        final BlogErrorDTO body = createBlogError(errorMessage, message);
+        return ResponseEntity.status(status).body(body);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<StandardError> validation(MethodArgumentNotValidException e, HttpServletRequest request) {
-        String error = "Validation error";
-        HttpStatus status = HttpStatus.UNPROCESSABLE_ENTITY;
+    public ResponseEntity<BlogErrorDTO> handleValidationExceptions(MethodArgumentNotValidException exception) {
+        final Map<String, String> errors = new HashMap<>();
 
-        String message = e.getBindingResult().getFieldError().getDefaultMessage();
+        exception.getBindingResult()
+                .getFieldErrors()
+                .forEach((error) -> {
+                    final String fieldName = error.getField();
+                    final String errorMessage = error.getDefaultMessage();
+                    errors.put(fieldName, errorMessage);
+        });
 
-        StandardError err = new StandardError(Instant.now(), status.value(),
-                error, message, request.getRequestURI());
-
-        return ResponseEntity.status(status).body(err);
+        final BlogPostingErrorMessage errorMessage = BlogPostingErrorMessage.BAD_REQUEST;
+        final HttpStatus status = BlogPostingErrorMessage.getHttpStatus(errorMessage);
+        final BlogErrorDTO body = new BlogErrorDTO(errorMessage, errors.toString());
+        return new ResponseEntity<>(body, status);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<StandardError> database(ExceptionHandler e, HttpServletRequest request) {
-        String error = "Internal Server Error";
-        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
-
-        StandardError err = new StandardError(Instant.now(), status.value(),
-                error, "Internal Server Error", request.getRequestURI());
-
-        return ResponseEntity.status(status).body(err);
+    public ResponseEntity<BlogErrorDTO> handleGenericException(Exception exception) {
+        final BlogPostingErrorMessage errorMessage = BlogPostingErrorMessage.INTERNAL_SERVER_ERROR;
+        final HttpStatus status = BlogPostingErrorMessage.getHttpStatus(errorMessage);
+        final BlogErrorDTO body = createBlogError(errorMessage);
+        return ResponseEntity.status(status).body(body);
     }
+    private BlogErrorDTO createBlogError(BlogPostingErrorMessage errorMessage) {
+        final String message = BlogPostingErrorMessage.getMessage(errorMessage);
+        return new BlogErrorDTO(errorMessage, message);
+    }
+
+    private BlogErrorDTO createBlogError(BlogPostingErrorMessage errorMessage, String message){
+        return new BlogErrorDTO(errorMessage, message);
+    }
+
 }

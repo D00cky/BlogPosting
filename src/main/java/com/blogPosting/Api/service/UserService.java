@@ -1,17 +1,17 @@
 package com.blogPosting.Api.service;
 
+import com.blogPosting.Api.dto.BlogErrorDTO;
 import com.blogPosting.Api.dto.UsersRequestDTO;
 import com.blogPosting.Api.dto.UsersResponseDTO;
 import com.blogPosting.Api.dto.mapper.UserMapper;
 import com.blogPosting.Api.entity.Users;
-import com.blogPosting.Api.exception.ResourceNotFoundException;
+import com.blogPosting.Api.exception.BlogException;
+import com.blogPosting.Api.exception.BlogPostingErrorMessage;
 import com.blogPosting.Api.repository.UsersRepository;
 
 import jakarta.transaction.Transactional;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 
 @Service
@@ -29,12 +29,12 @@ public class UserService {
     public UsersResponseDTO createUser(@NotNull UsersRequestDTO request) {
         // 1. check if the users exists
         if(!usersRepository.findUserByNickname(request.nickname()).isEmpty()) {
-            new ResourceNotFoundException("Nickname Already used: " + request.nickname());
+            throw new BlogException(BlogPostingErrorMessage.USER_ALREADY_EXISTS);         // 2. If the user exists, throw an error
+    }
+        if(!usersRepository.findByEmail(request.email()).isEmpty()) {
+            throw new BlogException(BlogPostingErrorMessage.EMAIL_ALREADY_EXISTS);         // 2. If the user exists, throw an error
         }
         // 2. If the user exists, throw an error
-        if(!usersRepository.findByEmail(request.email()).isEmpty()) {
-            new ResourceNotFoundException("Email Already used:" + request.nickname());
-        }
         // 3. If not, create a new user.
         Users userEntity = userMapper.mapToUser(request);
         // 4. Save in the database.
