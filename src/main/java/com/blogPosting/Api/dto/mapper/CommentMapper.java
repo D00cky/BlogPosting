@@ -13,7 +13,6 @@ public class CommentMapper {
 
     public Comment mapToCommentCreation(CommentCreateDTO commentCreateDTO, Post post, Users users) {
         Comment comment = new Comment();
-        comment.setId(commentCreateDTO.Id());
         comment.setTitle(commentCreateDTO.title());
         comment.setBody(commentCreateDTO.text());
         comment.setPost(post);

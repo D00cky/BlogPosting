@@ -22,6 +22,6 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
 //    @Query(value = "SELECT u FROM Users u WHERE u.nickname = :nickname", nativeQuery = true)
         Optional<Users> findUserByNickname(String nickname);
 
-//    Page<Users> findByPostId(Long postId, Pageable pageable);
+//    Page<Users> findByUserId(Long userId);
 
 }
