@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44d76d1f-7e72-4e57-87f8-9cee1b59114d" name="Changes" comment="Finished the get requisition and the nested endpoints">
+    <list default="true" id="44d76d1f-7e72-4e57-87f8-9cee1b59114d" name="Changes" comment="Finished the comment endpoints">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/blogPosting/Api/UserServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/aplication-test.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/BlogPostingApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/BlogPostingApiApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/controller/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/PostResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/PostResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/mapper/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/mapper/CommentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/UsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/UsersRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blogPosting/Api/BlogPostingApiApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/blogPosting/Api/BlogPostingApiApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blogPosting/Api/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/blogPosting/Api/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +28,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="cc2502acc6cc8ac5173c79eb7722ad96c1c6bd97" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -66,6 +65,10 @@
   "keyToString": {
     "Application.BlogPostingApiApplication.executor": "Run",
     "Docker.BlogPosting.executor": "Run",
+    "JUnit.UserServiceTest.createUser.executor": "Run",
+    "JUnit.UserServiceTest.executor": "Run",
+    "JUnit.UserServiceTest.userCreationTest (1).executor": "Run",
+    "JUnit.UserServiceTest.userCreationTest.executor": "Run",
     "Maven.Api [clean].executor": "Run",
     "Maven.Api [compile].executor": "Run",
     "Maven.Api [install].executor": "Run",
@@ -80,20 +83,40 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "cc2502ac",
+    "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/d00/Projects/BlogPosting/docker-compose.yaml",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.41609195",
-    "settings.editor.selected.configurable": "configurable.group.tools"
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "redis",
+      "postgresql"
+    ]
   }
 }]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.blogPosting.Api.exception" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources" />
       <recent name="$PROJECT_DIR$/BlogPosting" />
     </key>
   </component>
@@ -104,7 +127,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.BlogPostingApiApplication">
+  <component name="RunManager" selected="JUnit.UserServiceTest.userCreationTest (1)">
     <configuration name="BlogPostingApiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.blogPosting.Api.BlogPostingApiApplication" />
       <module name="BlogPosting" />
@@ -114,6 +137,77 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BlogPosting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.blogPosting.Api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.blogPosting.Api" />
+      <option name="MAIN_CLASS_NAME" value="com.blogPosting.Api.UserServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.createUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BlogPosting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.blogPosting.Api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.blogPosting.Api" />
+      <option name="MAIN_CLASS_NAME" value="com.blogPosting.Api.UserServiceTest" />
+      <option name="METHOD_NAME" value="createUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.userCreationTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.blogPosting.Api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.blogPosting.Api" />
+      <option name="MAIN_CLASS_NAME" value="com.blogPosting.Api.UserServiceTest" />
+      <option name="METHOD_NAME" value="userCreationTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.userCreationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BlogPosting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.blogPosting.Api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.blogPosting.Api" />
+      <option name="MAIN_CLASS_NAME" value="com.blogPosting.Api.UserServiceTest" />
+      <option name="METHOD_NAME" value="userCreationTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BlogPostingApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="Api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.blogPosting.Api.BlogPostingApiApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -129,9 +223,21 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserServiceTest.userCreationTest (1)" />
+        <item itemvalue="JUnit.UserServiceTest.userCreationTest" />
+        <item itemvalue="JUnit.UserServiceTest.createUser" />
+        <item itemvalue="JUnit.UserServiceTest" />
         <item itemvalue="Application.BlogPostingApiApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.30387.90" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -140,6 +246,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1768330602110</updated>
+      <workItem from="1771369351910" duration="66000" />
+      <workItem from="1771369423893" duration="34000" />
+      <workItem from="1771369465837" duration="222000" />
+      <workItem from="1771369692568" duration="90000" />
+      <workItem from="1771369790613" duration="2215000" />
     </task>
     <task id="LOCAL-00001" summary="First Project Commit">
       <option name="closed" value="true" />
@@ -373,8 +484,19 @@
       <option name="project" value="LOCAL" />
       <updated>1770750050634</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Finished the comment endpoints">
+      <option name="closed" value="true" />
+      <created>1771089860855</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1771089860855</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -388,7 +510,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="First Project Commit" />
     <MESSAGE value="Created docker and postgreSQL connection with redis" />
     <MESSAGE value="Finished the service." />
     <MESSAGE value="Created migrations for posts and roles" />
@@ -413,7 +534,8 @@
     <MESSAGE value="Added Exceptions Handlers for each requisition error." />
     <MESSAGE value="Created Exceptions, and defined HttpStatus for each one" />
     <MESSAGE value="Finished the get requisition and the nested endpoints" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished the get requisition and the nested endpoints" />
+    <MESSAGE value="Finished the comment endpoints" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished the comment endpoints" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -430,15 +552,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/mapper/UserMapper.java</url>
-          <line>11</line>
-          <properties class="com.blogPosting.Api.dto.mapper.UserMapper" method="mapToUserResponse">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/blogPosting/Api/dto/mapper/CommentMapper.java</url>
@@ -458,34 +571,10 @@
           </properties>
           <option name="timeStamp" value="62" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/CommentService.java</url>
-          <line>35</line>
-          <properties class="com.blogPosting.Api.service.CommentService" method="createComment">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/blogPosting/Api/repository/UsersRepository.java</url>
           <line>17</line>
           <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/CommentService.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/CommentService.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/blogPosting/Api/service/CommentService.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="68" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

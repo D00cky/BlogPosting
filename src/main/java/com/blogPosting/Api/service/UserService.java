@@ -28,13 +28,12 @@ public class UserService {
     @Transactional
     public UsersResponseDTO createUser(@NotNull UsersRequestDTO request) {
         // 1. check if the users exists
-        if(!usersRepository.findUserByNickname(request.nickname()).isEmpty()) {
-            throw new BlogException(BlogPostingErrorMessage.USER_ALREADY_EXISTS);         // 2. If the user exists, throw an error
+        if(usersRepository.findUserByNickname(request.nickname()).isEmpty()) {
+            throw new BlogException(BlogPostingErrorMessage.USER_ALREADY_EXISTS);
     }
-        if(!usersRepository.findByEmail(request.email()).isEmpty()) {
-            throw new BlogException(BlogPostingErrorMessage.EMAIL_ALREADY_EXISTS);         // 2. If the user exists, throw an error
+        if(usersRepository.findByEmail(request.email()).isEmpty()) {
+            throw new BlogException(BlogPostingErrorMessage.EMAIL_ALREADY_EXISTS);
         }
-        // 2. If the user exists, throw an error
         // 3. If not, create a new user.
         Users userEntity = userMapper.mapToUser(request);
         // 4. Save in the database.
